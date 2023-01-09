@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Yourself</title>
+    <link rel="stylesheet" href="../styles/register.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header__wrapper">
+            <div class="logo__div text-xl	">
+                <h3 class="p-2 ...">Kenzie Empresas</h3>
+            </div>
+            <div class="menu__div text-base">
+                <img src="../assets/icons8-menu-67.png" alt="menu mobile" class="mobile__menu">
+                <button id="home__button" class="hide rounded ... p-2 ... ">Home</button>
+                <button id="login__button" class="hide rounded ... p-2 ... ">Login</button>
+                <!-- <button class="toast">TOAST</button> -->
+            </div>
+        </div>
+    </header>
+    <main class="main__section">
+        <div class="form__container rounded-md ... py-8 px-7 ">
+            <form action="" id="register__form" name = "register__form" >
+                    <header class="form__header text-3xl py-3">Cadastre-se</header>
+                <input type="text" placeholder="Seu nome" id="name__input" required>
+                <label for="nome" id="nome"></label>
+                <input type="text" placeholder="Seu e-mail" id="email__input" required>
+                <label for="email" id="nome"></label>
+                <input type="text" placeholder="Digite uma senha" id="password__input" required>
+                <label for="nome" id="nome"></label>
+                <select name="nivelProfissional" id="nivelProfissional">
+                <option value="">Seu nível profissional</option>
+                <option value="junior">Júnior</option>
+                <option value="pleno">Pleno</option>
+                <option value="senior">Sênior</option>
+            </select>
+            <div class="buttons__form-container">
+            <button type="submit" class="rounded ... p-2 ... font-black" id="register__button">Cadastrar-se</button>
+            <p id="p__interButton">ou</p>
+            <button class="return__button font-black">Retornar</button>
+            </div>
+            </form>
+        </div>
+    </main>
+    
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="module" src="../scripts/register.js""></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../styles/login.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+<body>
+    <header>
+        <div class="header__wrapper">
+            <div class="logo__div text-xl	">
+                <h3 class="p-2 ...">Kenzie Empresas</h3>
+            </div>
+            <div class="menu__div text-base">
+                <img src="../assets/icons8-menu-67.png" alt="menu mobile" class="mobile__menu">
+                <button id="home__button" class="hide rounded ... p-2 ... ">Home</button>
+                <button id="signup__button-upper" class="hide rounded ... p-2 ... ">Cadastro</button>
+                <!-- <button class="toast">TOAST</button> -->
+            </div>
+        </div>
+    </header>
+    <main class="main__section">
+        <div class="form__container rounded-md ... py-8 px-7 ">
+            <form action="" id="register__form" name = "register__form" >
+                    <header class="form__header text-3xl py-3">Login</header>
+                    <p>Preencha os campos para realizar o login</p>
+                <input type="text" placeholder="Seu e-mail" id="email__input" required>
+                <label for="nome" id="nome"></label>
+                <input type="text" placeholder="Sua senha" id="senha__input" required>
+                <label for="email" id="nome"></label>
+
+            <div class="buttons__form-container">
+            <button type="submit" class="rounded ... p-2 ... font-black" id="login__button">Login</button>
+            <p id="p__interButton">ou</p>
+            <button class="signup__button-lower font-black">Cadastre-se</button>
+            </div>
+            </form>
+        </div>
+    </main>
+
+
+
+</body>
+<script type="module" src="../scripts/login.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+</html>
