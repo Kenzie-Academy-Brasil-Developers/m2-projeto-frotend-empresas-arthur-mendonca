@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(111, 111, 111);
+}
+
+header{
+display: flex;
+justify-content: space-around;
+border-bottom: solid rgb(207, 207, 207) 2px;
+}
+
+.logout{
+    border: solid #4200FF 2px;
+}
+
+.header__wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.top__container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.bottom__container{
+    align-self: center;
+}

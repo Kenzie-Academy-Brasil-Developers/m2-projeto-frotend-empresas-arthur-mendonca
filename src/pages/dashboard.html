@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../styles/dashboard.css">
+    <link rel="stylesheet" href="../styles/globalStyles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+</head>
+<body>
+    <header class="py-5">
+        <div class="header__wrapper">
+            <div class="logo__div text-xl	">
+                <h3 class="p-2 ...">Kenzie Empresas</h3>
+            </div>
+            <div class="menu__div text-base">
+            <button class="logout rounded ... p-2 ...">Logout</button>    
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="top__container">
+            <h3>Departamentos</h3>
+            <select name="" id=""></select>
+                <div>
+                    <i class="fa-solid fa-plus"></i><button>Criar</button>
+                </div>
+        </div>
+        <div class="departamentos__container">
+            <ul class="departamentos__ul"></ul>
+        </div>
+        <div class="bottom__container">
+            <h3>Usuários cadastrados</h3>
+        </div>
+        <div>
+            <ul class="usuarios__ul"></ul>
+        </div>
+    </main>
+</body>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="module" src="../scripts/dashboard.js""></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/0b215007f3.js" crossorigin="anonymous"></script>
+</html>

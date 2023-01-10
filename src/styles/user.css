@@ -1,0 +1,54 @@
+.header{
+    display: flex;
+}
+
+.header__wrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    border-bottom: rgb(133, 133, 133) 1px solid;
+    padding-bottom: 20px;
+    align-items: center;
+}
+
+.logout__button{
+    border: solid 3px #4200FF;
+    color: rgb(133, 133, 133);
+}
+.dados__usario-wrapper{
+    justify-content: space-evenly;
+    display: flex;
+    align-items: center;
+}
+
+.dados__usario-wrapper>img{
+    width: 30px;
+    height: 30px;
+}
+
+.usuario__li{
+    display: flex;
+    flex-direction: column;
+    /* border: solid 1px red; */
+}
+
+.upper__user-div{
+    display: flex;
+}
+
+.upper__user-div >h2{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.lower__user-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.lower__user-div>p{
+    font-size: 18px;
+}

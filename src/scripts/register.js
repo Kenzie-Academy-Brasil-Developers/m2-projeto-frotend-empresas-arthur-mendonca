@@ -21,7 +21,7 @@ let returnButton = document.querySelector(".return__button")
 
     returnButton.addEventListener(("click"), (e) =>{
     e.preventDefault()
-    window.location.assign("/index.html")
+    window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/index.html")
     })
 }
 retornarHomePeloForm()
@@ -31,7 +31,7 @@ function retornarHomePeloHeader(){
     
     homeButton.addEventListener(("click"), (e) =>{
         e.preventDefault()
-        window.location.assign("/index.html")
+        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/index.html")
         })
     }
 retornarHomePeloHeader()
@@ -47,13 +47,14 @@ async function cadastrarUsuario(user, email, password, level){
         }
     const options = {
         method: "POST",
-        header: {
+        headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
         }
 
         try{
+            console.log(options)
             const responseJSON = await fetch ("http://localhost:6278/auth/register", options)
             .then((res) => (res))
             const response = await responseJSON.json()
@@ -82,7 +83,13 @@ async function clicarParaCadastrarUsuario(){
 }
 clicarParaCadastrarUsuario()
 
-
+function loginPeloHeaderButton(){
+    let homeButton = document.querySelector("#login__button")
+    homeButton.addEventListener(("click"),()=>{
+        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/login.html")
+    }) 
+}
+loginPeloHeaderButton()
 
 
 

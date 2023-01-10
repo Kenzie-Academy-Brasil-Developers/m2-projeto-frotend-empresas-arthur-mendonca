@@ -69,7 +69,7 @@ async function filtrarEmpresas(){
     const empresas = await pegarEmpresas()
     let name = document.querySelectorAll(".sector__name")
 
-name.forEach((element) => {
+    name.forEach((element) => {
     element.addEventListener(("click"), async () =>{ 
         ul.innerHTML = ""
         const empresaData = await fetch (`${baseURL}/companies`)
@@ -102,7 +102,7 @@ function redirecionarLogin(){
     let loginButton = document.querySelector("#login__button")
 
     loginButton.addEventListener(("click"), () =>{
-        window.location.assign("/src/pages/login.html")
+        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/login.html")
     })
 }
 redirecionarLogin()
@@ -112,7 +112,7 @@ function redirecionarCadastro(){
     let cadastroButton = document.querySelector("#signup__button")
 
     cadastroButton.addEventListener(("click"), () =>{
-        window.location.assign("/src/pages/register.html")
+        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/register.html")
     })
 }
 redirecionarCadastro()
