@@ -24,16 +24,30 @@
     <main>
         <div class="dados__usario-wrapper">
             <ul class="usuario__li"></ul>
-            <img src="../assets/caneta azul.png" alt="caneta azul">
+            <img src="../assets/caneta azul.png" alt="caneta azul" class="caneta__azul">
+            <dialog class="modal__tag">
+                <div class="modal__div">
+                    <header>
+                        <h4 class="font-bold text-3xl">Editar Perfil</h4> <i class="fechar__button fa-solid fa-x"></i>
+                    </header>
+                    <div>
+                        <input type="text" placeholder="Nome" id="editar__nome">
+                        <input type="text" placeholder="E-mail" id="editar__email">
+                        <input type="text" placeholder="Senha" id="editar__senha">
+                        <button class="edit__button rounded ... p-2 ... py-3 px-3 font-medium">Editar perfil</button>
+                    </div>
+                </div>
+            </dialog>
         </div>
         <div class="colegas__div">
-        <ul class="colegas__info-ul"></ul>
+        <ul class="colegas__info-ul p-8"></ul>
         </div>
     </main>
 </body>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script type="module" src="../scripts/user.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://kit.fontawesome.com/0b215007f3.js" crossorigin="anonymous"></script>
 </html>
 
 

@@ -52,7 +52,7 @@ function fazerLogin(){
         else{
             localStorage.setItem("token", response.token)
             toast("Login realizado ", "#4BA036" )
-            window.location.assign("/src/pages/dashboard.html")
+            window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/dashboard.html")
         }
     }
     catch(error) {

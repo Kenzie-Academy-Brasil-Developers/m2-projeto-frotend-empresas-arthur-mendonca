@@ -1,3 +1,11 @@
+main{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 50px;
+}
+
 .header{
     display: flex;
 }
@@ -20,6 +28,9 @@
     justify-content: space-evenly;
     display: flex;
     align-items: center;
+    border: solid 1px rgb(222, 222, 222);
+    margin-bottom: 30px;
+    padding: 10px 20px;
 }
 
 .dados__usario-wrapper>img{
@@ -27,10 +38,14 @@
     height: 30px;
 }
 
+.colegas__div{
+    width: 100%;
+}
 .usuario__li{
     display: flex;
     flex-direction: column;
-    /* border: solid 1px red; */
+    width: 100%;
+    align-items: flex-start;
 }
 
 .upper__user-div{
@@ -47,8 +62,94 @@
     flex-direction: row;
     justify-content: space-around;
     gap: 40px;
+    flex-wrap: wrap;
 }
 
 .lower__user-div>p{
     font-size: 18px;
 }
+
+.colegas__header{
+    background-color: #4200FF;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+}
+.colegas__info-ul{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    background-color: rgb(251, 251, 251);
+    align-content: space-between;
+    align-items: center;
+}
+.colegas__list{
+    list-style: none;
+    border:solid 3px #4200FF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.colegas__list:hover{
+    filter:opacity(0.5);
+}
+
+.no__user-div{
+    width: 30vw;
+    height: 50vh;
+}
+
+.caneta__azul{
+    cursor: pointer;
+}
+
+.modal__div{
+     display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px; 
+    
+}
+
+dialog::backdrop{
+    background-color: rgb(141, 141, 141);
+    opacity: 0.9;
+}
+
+.modal__div> header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit__button{
+   background-color: #4200FF;
+   color: white;
+}
+
+.modal__div > div{
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+}
+
+.modal__div > div > input{
+    border: grey solid 1px;
+    border-radius: 3px;
+    padding-left: 10px;
+}
+
+/* <dialog class="modal__tag">
+                <header>
+                    <h4>Editar Perfil</h4> <i class="fechar__button fa-solid fa-x"></i>
+                </header>
+                <div>
+                    <input type="text" placeholder="Nome" id="editar__nome">
+                    <input type="text" placeholder="E-mail" id="editar__email">
+                    <input type="text" placeholder="Senha" id="editar__senha">
+                    <button class="edit__button">Editar perfil</button>
+                </div>
+            </dialog> */

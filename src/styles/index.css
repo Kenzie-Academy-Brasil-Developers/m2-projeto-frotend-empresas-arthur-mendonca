@@ -26,8 +26,6 @@ body{
     display: flex;
     gap:30px;
     margin: 0 auto;
-    
-    
 }
 
 #login__button{
@@ -109,6 +107,8 @@ body{
 
 .header__wrapper{
     justify-content: space-between;
+    position: relative;
+    
 }
 
 .menu__div {
@@ -145,17 +145,35 @@ width: 20%;
 width: 100%;
 }
 
+.div__menu-buttons{
+    
+}
+
 .hide{
-    display: none;
-    transition: cubic-bezier(0.47, 0, 0.745, 0.715) ease;
+    position: relative;
+    z-index: -1;
+    transform: translateX(-330px);
+    transition: 0.2s ease-in;
+    /* bottom: 100px; */
+    left: 350px;
+    display: flex;
+    /* left: 142px; */
+    flex-direction: column;
+    
+}
+
+.show__menu{
+    left: -31px;
 }
 
 #login__button{
-    z-index: 100;
+    z-index: -100;
+    position: relative;
 }
 
 #signup__button{
-    z-index: 100;
+    z-index: -100;
+    position: relative;
 }
 
 .img__container{

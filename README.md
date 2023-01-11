@@ -16,3 +16,8 @@ vídeo do projeto pronto
 
 Para modificar aparência do SELECT
    https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
+
+
+   Para fazer LOGOUT 
+
+   localStorage.clear("token")
