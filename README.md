@@ -18,6 +18,22 @@ Para modificar aparência do SELECT
    https://developer.mozilla.org/en-US/docs/Web/CSS/appearance
 
 
+
    Para fazer LOGOUT 
 
    localStorage.clear("token")
+
+
+
+
+   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals#ternary_operator
+
+O exemplo do SELECT que trata de previsão  do tempo serve pra parte de selecionar as empresas de acordo com o ramo 
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
+
+Evento change pra usar no select.
+
+Capturar a tag select pelo DOM e lhe passar um add event list3ner ( ("change"), ( ) =>

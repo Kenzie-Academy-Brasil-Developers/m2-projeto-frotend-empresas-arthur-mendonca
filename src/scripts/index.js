@@ -11,7 +11,7 @@ toasty.addEventListener("click", (e) => {
 let ul = document.querySelector(".companies__ul-wrapper")
 
 
-async function pegarEmpresas(){
+export async function pegarEmpresas(){
 
     const response = await fetch ("http://localhost:6278/companies",{
         "method": "GET",
@@ -102,7 +102,7 @@ function redirecionarLogin(){
     let loginButton = document.querySelector("#login__button")
 
     loginButton.addEventListener(("click"), () =>{
-        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/login.html")
+        window.location.assign("/src/pages/login.html")
     })
 }
 redirecionarLogin()

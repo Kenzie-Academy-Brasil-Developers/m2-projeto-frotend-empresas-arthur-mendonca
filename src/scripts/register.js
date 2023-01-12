@@ -21,7 +21,7 @@ let returnButton = document.querySelector(".return__button")
 
     returnButton.addEventListener(("click"), (e) =>{
     e.preventDefault()
-    window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/index.html")
+    window.location.assign("/index.html")
     })
 }
 retornarHomePeloForm()
@@ -31,7 +31,7 @@ function retornarHomePeloHeader(){
     
     homeButton.addEventListener(("click"), (e) =>{
         e.preventDefault()
-        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/index.html")
+        window.location.assign("/index.html")
         })
     }
 retornarHomePeloHeader()
@@ -86,7 +86,7 @@ clicarParaCadastrarUsuario()
 function loginPeloHeaderButton(){
     let homeButton = document.querySelector("#login__button")
     homeButton.addEventListener(("click"),()=>{
-        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/login.html")
+        window.location.assign("/src/pages/login.html")
     }) 
 }
 loginPeloHeaderButton()

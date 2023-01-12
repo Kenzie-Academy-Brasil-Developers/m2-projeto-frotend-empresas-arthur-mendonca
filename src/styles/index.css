@@ -108,7 +108,8 @@ body{
 .header__wrapper{
     justify-content: space-between;
     position: relative;
-    
+    z-index: 10;
+    background-color: #FFF;
 }
 
 .menu__div {
@@ -117,8 +118,9 @@ align-items: center;
 height: max-content;
 position: fixed;
 right: 50px;
-height: 5%;
+height: -1%;
 width: 20%;
+z-index:10;
 }
 
 .companies__container {
@@ -146,7 +148,9 @@ width: 100%;
 }
 
 .div__menu-buttons{
-    
+    z-index:-1;
+    top:30px;
+    position: inherit;
 }
 
 .hide{

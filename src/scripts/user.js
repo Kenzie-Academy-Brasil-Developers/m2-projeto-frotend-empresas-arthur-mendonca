@@ -159,7 +159,7 @@ async function logout (){
   let botaoLogout = document.querySelector(".logout__button ")
   botaoLogout.addEventListener("click",  () =>{
     localStorage.clear("token")
-    window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/index.html")
+    window.location.assign("/index.html")
   })
 } 
 logout()

@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    <header class="py-5">
+    <header class="menu__header py-5">
         <div class="header__wrapper">
             <div class="logo__div text-xl	">
                 <h3 class="p-2 ...">Kenzie Empresas</h3>
@@ -24,24 +24,93 @@
     <main>
         <div class="top__container">
             <h3>Departamentos</h3>
-            <select name="" id=""></select>
-                <div>
-                    <i class="fa-solid fa-plus"></i><button>Criar</button>
+            <label for="user__select"></label>
+            <select name="Selecionar departamento" id="selecionar__departamento" class="departamentos__select">
+                <option value="">Selecionar empresa</option>
+                <option value="todas">Mostrar todas</option>
+            </select>
+                <div class="create__button-div">
+                    <img src="/src/assets/white-plus-icon-3.jpg" alt="white plus symbol" id="white__plus">
+                    <button id="criar__departamento-button">Criar</button>
                 </div>
         </div>
         <div class="departamentos__container">
             <ul class="departamentos__ul"></ul>
         </div>
         <div class="bottom__container">
-            <h3>Usuários cadastrados</h3>
+            <h3 class="text-3xl font-bold">Usuários cadastrados</h3>
         </div>
-        <div>
+        <div class="usuarios__wrapper">
             <ul class="usuarios__ul"></ul>
         </div>
+        
+        <dialog class="modal__delete rounded-lg">
+            <div class="modal__wrapper p-5">
+                <h3 class="delete__alert font-bold text-2xl">Realmente deseja remover o usuário</h3>
+                <button class="delete__button rounded-lg"></button>
+                <button class="cancel__delete rounded-lg"></button>
+            </div>
+        </dialog>
+        <dialog class="delete__dep-modal">
+            <div>
+                <h4 id="delete__dep-text"></h4>
+                <button class="delete__dep-button"></button>
+                <button class="delete__dep-cancel"></button>
+            </div>
+        </dialog>
+        <dialog class="criar__departamento-modal">
+            <div class="criar__departamento-wrapper">
+                <div>
+                    <span class="criar__departamento-title">Criar departamento</span>
+                </div>
+                <input type="text" placeholder="Nome do departamento" class="nome__novo-departamento">
+                <input type="text" placeholder="Descrição" class="descricao__novo-departamento">
+                <select name="criar__departamento-select" class="criar__departamento-select">
+                    <option value="valor" id="">Selecionar empresa</option>
+                </select>
+                <div class="buttons__div-createModal">
+                    <button class="criar__departamento-button">Criar departamento</button>
+                    <button class="criar__departamento-cancelButton">Cancel</button>
+                </div>
+                </div>
+        </dialog>
+        <dialog class="editar__departamento-modal">
+            <div class="editar__modal-wrapper">
+                    <h3>Editar departamento</h3>
+                    <input type="text" class="editar__nome-input" placeholder="Nome">
+                    <input type="text" class="editar__descricao-input" placeholder="Descrição">
+                <button class="editar__departamento-button">Editar</button>
+                <button class="cancelar__departamento-button">Cancelar</button>
+            </div>
+        </dialog>
+        <dialog class="editar__usuario-modal">
+             <div class="editarUsuario__modal-wrapper">
+                <h3>Editar usuário</h3>
+                <select name="Modalidade de trabalho" id="kindOfWork__select">
+                    <option value="">Selecionar modalidade de trabalho</option>
+                    <option value="home office">Remoto</option>
+                    <option value="presencial">Presencial</option>
+                    <option value="hibrido">Híbrido</option>
+                </select>
+                <select name="Nível profissional" id="professionalLevel__select">
+                    <option value="">Selecionar nível profissional</option>
+                    <option value="estágio">Estagiário</option>
+                    <option value="júnior">Júnior</option>
+                    <option value="pleno">Pleno</option>
+                    <option value="sênior">Sênior</option>
+                    <!-- estágio, júnior, pleno, sênior -->
+                    <!-- kind_of_work must be one of these: home office, presencial, hibrido' -->
+                </select>
+                <button class="editarUser__button">Editar</button>
+                <button class="editarUser__cancelButton">Cancelar</button>
+             </div>
+        </dialog>
     </main>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/0b215007f3.js" crossorigin="anonymous" ></script>
+    <script type="module" src="../scripts/dashboard.js" defer></script>
 </body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-<script type="module" src="../scripts/dashboard.js""></script>
-<script src="https://cdn.tailwindcss.com"></script>
-<script src="https://kit.fontawesome.com/0b215007f3.js" crossorigin="anonymous"></script>
 </html>
+
+

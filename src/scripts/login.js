@@ -5,11 +5,11 @@ function retornarHome(){
     let cadastroButtonUpper = document.querySelector("#signup__button-upper")
     cadastroButton.addEventListener(("click"), (e) =>{
         e.preventDefault()
-        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/register.html")
+        window.location.assign("/src/pages/register.html")
     })
     cadastroButtonUpper.addEventListener(("click"), (e) =>{
         e.preventDefault()
-        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/register.html")
+        window.location.assign("/src/pages/register.html")
     })
 }
 retornarHome()
@@ -17,7 +17,7 @@ retornarHome()
 function retornarHomePeloHeader(){
     let homeButton = document.querySelector("#home__button")
     homeButton.addEventListener(("click"),()=>{
-        window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/index.html")
+        window.location.assign("/index.html")
     }) 
 }
 retornarHomePeloHeader()
@@ -52,7 +52,7 @@ function fazerLogin(){
         else{
             localStorage.setItem("token", response.token)
             toast("Login realizado ", "#4BA036" )
-            window.location.assign("/m2-projeto-frotend-empresas-arthur-mendonca/src/pages/dashboard.html")
+            window.location.assign("/src/pages/dashboard.html")
         }
     }
     catch(error) {
