@@ -36,7 +36,7 @@ async function verificarTipoUsuario(){
     //   console.log(response.is_admin)
 
     if(!response.is_admin){
-        window.location.assign("/src/pages/user.html")
+        window.location.assign("/user.html")
       } else{
         toast("Bem vindo de volta, sr. Admin", "#4BA036" )
         }
@@ -182,7 +182,7 @@ async function mostrarTodosDepartamentos(){
     try{
         const responseJSON = await fetch('http://localhost:6278/departments', options)
         const response = await responseJSON.json();
-        console.log(response);
+        // console.log(response);
 
         ulDepartamentos.innerHTML = "" 
         
@@ -265,7 +265,7 @@ async function mostrarTodosDepartamentos(){
                           })
                     })                    
         })
-          
+          return response
       }
     catch{(error) => console.log(error)}
 }
@@ -495,75 +495,135 @@ async function executarMostrarDepPeloSelect(){
 }
 executarMostrarDepPeloSelect()
 
-async function contratarFuncionario(){
+async function contratarFuncionario(userId, departamentoId){
+  const token = localStorage.getItem("token")
 
+  const data = {
+    "user_uuid": userId,
+    "department_uuid": departamentoId
+  }
 
 const options = {
   method: 'PATCH',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiMzZhYjQ1ZTYtMmM5ZS00NDQwLWFlNTktOTNhYmJjZDMwMmIwIiwiaXNfYWRtaW4iOnRydWUsImlhdCI6MTY3MzMwMjM4MCwiZXhwIjoxNjc0MTY2MzgwLCJzdWIiOiJbb2JqZWN0IFVuZGVmaW5lZF0ifQ.op3E-QSyMV5w5XMpV-he0ksva3RFQ9xvMPcsdL7WOVU'
+    Authorization: `Bearer ${token}`
   },
-  body: '{"user_uuid":"7af29c09-bd3f-426f-9e6a-0c45b26259e0","department_uuid":"0e6fc86c-7837-4c81-b1a1-dc024492bce4"}'
+  body: JSON.stringify(data)
 };
 
-fetch('http://localhost:6278/departments/hire/', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
+try{
+  const responseJSON = await fetch('http://localhost:6278/departments/hire/', options)
+  const response = await responseJSON.json()
+  console.log(responseJSON)
+  console.log(response)
+  return response
+}
+catch{(error) => console.log(error)}
+
 
 } 
 
 
 async function mostrarUserSemEmprego(){
+  
   const token = localStorage.getItem("token")
-
-const options = {
-  method: 'GET',
-  headers: {
-    Authorization: `Bearer ${token}`
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  };
+  try{ 
+    const responseJSON = await fetch('http://localhost:6278/admin/out_of_work', options);
+    const response = await responseJSON.json()
+    console.log(responseJSON)
+    console.log(response)
+    return response
   }
-};
-try{ 
-  const responseJSON = await fetch('http://localhost:6278/admin/out_of_work', options);
-  const response = await responseJSON.json()
-  console.log(responseJSON)
-  console.log(response)
-}
-  catch{
-    (error) => console.log (error)}
+    catch{
+      (error) => console.log (error)}
   
 }
-mostrarUserSemEmprego()
 
 
 
 
-const mostrarDep = mostrarTodosDepartamentos()
 
 
 
+const userSemEmprego = await mostrarUserSemEmprego()
+const mostrarDep = await mostrarTodosDepartamentos()
+const mostrarTodosUsers = await pegarTodosUsuarios()
 
 async function chamarModalDepartamentos(){
-let botaoOlho = document.querySelectorAll(".botao__olho")
-let modal = document.querySelector(".dados__departamento-modal")
-let title = document.querySelector(".dados__departamento-upperDiv > h3")
-let depDescription = document.querySelector(".dados__departamento-middleDiv > span")
-let nomeEmpresa = document.querySelector(".dados__departamento-middleDiv > small")    
-let selectUser = document.querySelector(".select__userToHire")
 
+  let botaoOlho = document.querySelectorAll(".botao__olho")
+  let modal = document.querySelector(".dados__departamento-modal")
+  let title = document.querySelector(".dados__departamento-upperDiv > h3")
+  let depDescription = document.querySelector(".dados__departamento-middleDiv > span")
+  let nomeEmpresa = document.querySelector(".dados__departamento-middleDiv > small")    
+  let selectUser = document.querySelector(".select__userToHire")
+  let botaoContratar = document.querySelector(".contratar__button")
+  
 
-console.log(mostrarDep)
-botaoOlho.forEach((e) => {
-      let option = document.createElement("option")
-      let filter = mostrarDep.filter(async (element) => {await element})
-      // console.log(e)
-      console.log(filter)
-        e.addEventListener(("click"), (event) => {
-          modal.showModal()
-        })
+     
 
-    })
+  e.addEventListener(("click"), (event) => {
+      let IDdoDepartamento = event.currentTarget.id
+      event.preventDefault()
+      modal.showModal()
+      selectUser.innerHTML = ""
+
+          
+            // let filter = mostrarDep.filter( (element) => { return element.uuid == event.currentTarget.id})
+            // filter.map((element) => {console.log(element)})
+            
+              filter.map((element) => {
+                title.innerText = element.name
+                depDescription.innerText = element.description
+                nomeEmpresa.innerText = element.companies.name
+              })
+
+                  userSemEmprego.forEach((elementos) => {
+                    // console.log(elementos)
+                    let option = document.createElement("option")
+                    option.id = elementos.uuid
+                    option.classList.add("usuariosParaContratar")
+                    option.value = elementos.uuid
+                    selectUser.append(option)
+                    option.innerText = elementos.username      
+                  })
+                
+                // mostrarTodosUsers.map((e) => {
+                //   let optionSelecionada = document.querySelectorAll(".usuariosParaContratar")
+                //   Array.from(selectUser.options).forEach( function (option, index) {
+                    
+                //     if(option.id == e.uuid){
+                          
+                //       }
+                //     })
+                  
+
+                      // optionSelecionada.forEach((option) => {
+                      //   if(option.id == e.uuid){
+                            
+                      //     }
+                      //  })
+                      botaoOlho.forEach((e) => {
+                        botaoContratar.addEventListener(("click"), async() => {
+                      
+                          contratarFuncionario(selectUser.value, IDdoDepartamento)
+                        })
+                   })
+
+                      
+                  
+            
+          })
+
 
 }
+
 chamarModalDepartamentos()
+

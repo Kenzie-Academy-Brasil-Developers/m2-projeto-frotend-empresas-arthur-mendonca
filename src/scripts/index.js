@@ -101,8 +101,8 @@ function redirecionarLogin(){
 
     let loginButton = document.querySelector("#login__button")
 
-    loginButton.addEventListener(("click"), () =>{
-        window.location.assign("./src/pages/login.html")
+    loginButton.addEventListener(("click"), () => {
+        window.location.assign("/login.html")
     })
 }
 redirecionarLogin()
@@ -112,7 +112,7 @@ function redirecionarCadastro(){
     let cadastroButton = document.querySelector("#signup__button")
 
     cadastroButton.addEventListener(("click"), () =>{
-        window.location.assign("./src/pages/register.html")
+        window.location.assign("/register.html")
     })
 }
 redirecionarCadastro()
