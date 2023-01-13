@@ -265,6 +265,7 @@ async function mostrarTodosDepartamentos(){
                           })
                     })                    
         })
+          chamarModalDepartamentos()
           return response
       }
     catch{(error) => console.log(error)}
@@ -440,6 +441,7 @@ async function mostrarDepPeloSelect(uuid){
     ulDepartamentos.innerHTML = ""
     if(response.length == 0){
       ulDepartamentos.innerHTML = ""
+
     }else{
 
       response.forEach((e) => {
@@ -486,6 +488,7 @@ async function executarMostrarDepPeloSelect(){
         selectDepartamentos.addEventListener(("change"), (event) => {
             if(selectDepartamentos.value == "todas"){
               mostrarTodosDepartamentos()
+              
             }else{
             let filter = mostrarTodasEmpresas.filter((e) => selectDepartamentos.value == e.name)
               // console.log(filter[0])
