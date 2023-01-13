@@ -187,7 +187,7 @@ async function mostrarTodosDepartamentos(){
         ulDepartamentos.innerHTML = "" 
         
         response.map((e) => {
-          console.log(e)
+          // console.log(e)
           let li = document.createElement("li");
           let depName = document.createElement("h3");
           let depDesc = document.createElement("p");
@@ -212,6 +212,7 @@ async function mostrarTodosDepartamentos(){
           upperDiv.classList.add("upper__dep-div")
           lowerDiv.classList.add("lower__dep-div")
           img3.classList.add("lixeira__departamento")
+          img1.classList.add("botao__olho")
           img3.id = e.uuid
           img2.id = e.uuid
           img1.id = e.uuid
@@ -495,8 +496,8 @@ async function executarMostrarDepPeloSelect(){
 executarMostrarDepPeloSelect()
 
 async function contratarFuncionario(){
-  
-} 
+
+
 const options = {
   method: 'PATCH',
   headers: {
@@ -510,3 +511,59 @@ fetch('http://localhost:6278/departments/hire/', options)
   .then(response => response.json())
   .then(response => console.log(response))
   .catch(err => console.error(err));
+
+} 
+
+
+async function mostrarUserSemEmprego(){
+  const token = localStorage.getItem("token")
+
+const options = {
+  method: 'GET',
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
+};
+try{ 
+  const responseJSON = await fetch('http://localhost:6278/admin/out_of_work', options);
+  const response = await responseJSON.json()
+  console.log(responseJSON)
+  console.log(response)
+}
+  catch{
+    (error) => console.log (error)}
+  
+}
+mostrarUserSemEmprego()
+
+
+
+
+const mostrarDep = mostrarTodosDepartamentos()
+
+
+
+
+async function chamarModalDepartamentos(){
+let botaoOlho = document.querySelectorAll(".botao__olho")
+let modal = document.querySelector(".dados__departamento-modal")
+let title = document.querySelector(".dados__departamento-upperDiv > h3")
+let depDescription = document.querySelector(".dados__departamento-middleDiv > span")
+let nomeEmpresa = document.querySelector(".dados__departamento-middleDiv > small")    
+let selectUser = document.querySelector(".select__userToHire")
+
+
+console.log(mostrarDep)
+botaoOlho.forEach((e) => {
+      let option = document.createElement("option")
+      let filter = mostrarDep.filter(async (element) => {await element})
+      // console.log(e)
+      console.log(filter)
+        e.addEventListener(("click"), (event) => {
+          modal.showModal()
+        })
+
+    })
+
+}
+chamarModalDepartamentos()

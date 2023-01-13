@@ -86,7 +86,7 @@ clicarParaCadastrarUsuario()
 function loginPeloHeaderButton(){
     let homeButton = document.querySelector("#login__button")
     homeButton.addEventListener(("click"),()=>{
-        window.location.assign("/src/pages/login.html")
+        window.location.assign("./src/pages/login.html")
     }) 
 }
 loginPeloHeaderButton()
