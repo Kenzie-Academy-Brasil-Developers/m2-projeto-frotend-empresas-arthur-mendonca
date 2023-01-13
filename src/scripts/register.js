@@ -22,6 +22,7 @@ let returnButton = document.querySelector(".return__button")
     returnButton.addEventListener(("click"), (e) =>{
     e.preventDefault()
     window.location.assign("/index.html")
+    // ok
     })
 }
 retornarHomePeloForm()
@@ -32,6 +33,7 @@ function retornarHomePeloHeader(){
     homeButton.addEventListener(("click"), (e) =>{
         e.preventDefault()
         window.location.assign("/index.html")
+        // ok
         })
     }
 retornarHomePeloHeader()
@@ -86,7 +88,7 @@ clicarParaCadastrarUsuario()
 function loginPeloHeaderButton(){
     let homeButton = document.querySelector("#login__button")
     homeButton.addEventListener(("click"),()=>{
-        window.location.assign("/login.html")
+        window.location.assign("./login.html")
     }) 
 }
 loginPeloHeaderButton()
