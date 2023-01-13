@@ -5,11 +5,11 @@ function retornarHome(){
     let cadastroButtonUpper = document.querySelector("#signup__button-upper")
     cadastroButton.addEventListener(("click"), (e) =>{
         e.preventDefault()
-        window.location.assign("/register.html")
+        window.location.assign("./register.html")
     })
     cadastroButtonUpper.addEventListener(("click"), (e) =>{
         e.preventDefault()
-        window.location.assign("/register.html")
+        window.location.assign("./register.html")
     })
 }
 retornarHome()
