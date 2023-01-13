@@ -3,10 +3,7 @@ let toasty = document.querySelector(".toast")
 let baseURL = "http://localhost:6278"
 
 
-toasty.addEventListener("click", (e) => {
-    e.preventDefault()
-    toast("Achô", "#4200FF")
-})
+// 
 
 let ul = document.querySelector(".companies__ul-wrapper")
 
@@ -28,7 +25,7 @@ export async function pegarEmpresas(){
 async function mostrarEmpresas(){
 
     const empresas = await pegarEmpresas()
-    console.log(empresas)
+    // console.log(empresas)
 
     empresas.map(element =>
         ul.insertAdjacentHTML
@@ -66,31 +63,36 @@ mostrarMenuMobile()
 
 async function filtrarEmpresas(){
 
-    const empresas = await pegarEmpresas()
-    let name = document.querySelectorAll(".sector__name")
-
-    name.forEach((element) => {
-    element.addEventListener(("click"), async () =>{ 
-        ul.innerHTML = ""
-        const empresaData = await fetch (`${baseURL}/companies`)
-        .then((res) => res.json())
-
-         const filterResult = empresaData.filter((e) =>  (e.sectors.description == element.innerHTML)) 
-         console.log(filterResult)
+    let select = document.querySelector("#companies__select")
+    let todosSetores = await mostrarTodosSetores()
     
-            filterResult.map((e) => {
-                    
-                    ul.insertAdjacentHTML(`beforeend`, `
-                    <li class="companies__inside-container p-4 ...">
-                    <h3>${e.name}</h3>
-                    <p>${e.opening_hours}</p>
-                    <h6 class="p-1.5 ... rounded-full ... sector__name" >${e.sectors.description}</h6>
-                    </li>
-                    `)
+            todosSetores.forEach((e) => {
+                let option = document.createElement("option")
+                option.classList.add("select__options")
+                option.value = e.description
+                option.innerText = e.description
+                select.append(option)
             })
-           
-        })
-    })
+            
+            select.addEventListener(("change") , async (event) =>{
+                console.log(event.currentTarget.value)
+                
+                ul.innerHTML = ""
+                if(event.currentTarget.value == "todos"){
+                    mostrarEmpresas()
+                }   else{   let result =  await mostrarEmpresaPorSetor(event.currentTarget.value)
+                            result.forEach((e) => {
+                                ul.insertAdjacentHTML(`beforeend`, `
+                                    <li class="companies__inside-container p-4 ...">
+                                    <h3>${e.name}</h3>
+                                    <p>${e.opening_hours}</p>
+                                    <h6 class="p-1.5 ... rounded-full ... sector__name" >${e.sectors.description}</h6>
+                                    </li>
+                                `)
+                            })
+                    }
+                })
+
 }
     
 filtrarEmpresas()
@@ -117,6 +119,44 @@ function redirecionarCadastro(){
 }
 redirecionarCadastro()
 
+async function mostrarTodosSetores(){
+
+    const options = {
+        method: 'GET',
+        headers: {
+          Authorization: ""
+        }
+      };
+      
+      try{
+        const responseJSON = await fetch('http://localhost:6278/sectors', options)
+        const response = await responseJSON.json()
+        return response
+      }
+      catch{(error) => console.log(error)}  
+
+}
+
+
+async function mostrarEmpresaPorSetor(setor){
+    
+    const options = {method: 'GET', headers: {Authorization: 'Bearer '}};
+
+    try{
+        const responseJSON = await fetch(`http://localhost:6278/companies/${setor}`, options)
+        const response = responseJSON.json()
+        // console.log(responseJSON)
+    // console.log(response)
+    return response
+    }catch{
+        (error) => console.log(error)}
+}
+
+
+// toasty.addEventListener("click", (e) => {
+    //     e.preventDefault()
+    //     toast("Achô", "#4200FF")
+    // })
 
 
 
@@ -135,21 +175,3 @@ redirecionarCadastro()
 
 
 
-// const people1 = { 
-//     name: "samuel", 
-//     age: 23, 
-//     address: {
-//         city: "Rio de Janeiro",
-//         state: "RJ"
-//     }
-// }
-
-// const bujao = people1.name
-// console.log(bujao)
-
-// function descriptionPeople({ name, age, address: {city, state }}) {
-//     return `Meu nome é ${name}, tenho ${age} anos, 
-//     resido na cidade do ${city} no estado do ${state}`;
-//   }
-
-//   console.log(descriptionPeople(people1))

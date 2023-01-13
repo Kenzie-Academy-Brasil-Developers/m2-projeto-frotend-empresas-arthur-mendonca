@@ -77,11 +77,12 @@ main{
 }
 .colegas__info-ul{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 50px;
     background-color: rgb(251, 251, 251);
     align-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 .colegas__list{
     list-style: none;

@@ -418,3 +418,39 @@ body > main > dialog.delete__dep-modal > div > button:hover{
     background-color:  #b9b9b9;
     color: white;
 }
+
+.dados__departamento-modal{
+    border-radius: 10px;
+}
+
+.dados__departamento-wrapper{
+    width: 75vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 10px;
+    align-items: center;
+    min-width: 340px;
+
+}
+
+.dados__departamento-middleDiv{
+    display: flex;
+    gap: 10px;
+}
+
+.nome__departamento-modal{
+    font-weight: 800;
+    font-size: 28px;
+}
+
+.contratar__button{
+    background-color:  #4200FF;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    font-weight: 800;   
+    border-radius: 8px;
+    width: 50%;
+    align-self: center;
+}

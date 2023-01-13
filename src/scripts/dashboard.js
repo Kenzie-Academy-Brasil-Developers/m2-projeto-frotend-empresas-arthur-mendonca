@@ -563,9 +563,9 @@ async function chamarModalDepartamentos(){
 
   let botaoOlho = document.querySelectorAll(".botao__olho")
   let modal = document.querySelector(".dados__departamento-modal")
-  let title = document.querySelector(".dados__departamento-upperDiv > h3")
-  let depDescription = document.querySelector(".dados__departamento-middleDiv > span")
-  let nomeEmpresa = document.querySelector(".dados__departamento-middleDiv > small")    
+  let title = document.querySelector(".nome__departamento-modal")
+  let depDescription = document.querySelector(".descricao__departamento-modal")
+  let nomeEmpresa = document.querySelector(".nome__empresa-modal")    
   let selectUser = document.querySelector(".select__userToHire")
   let botaoContratar = document.querySelector(".contratar__button")
   
@@ -608,3 +608,21 @@ botaoOlho.forEach((e) => {
 
 chamarModalDepartamentos()
 
+
+
+async function mostrarFuncionarioDoDepartamento(){
+  const token = localStorage.getItem("token")
+  const options = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${token} `
+    }
+  };
+  
+  fetch('http://localhost:6278/users/departments/coworkers', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+
+}
+mostrarFuncionarioDoDepartamento()

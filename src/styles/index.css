@@ -81,6 +81,10 @@ body{
     gap:13px;
 }
 
+.companies__inside-container:hover{
+opacity: 0.4;
+}
+
 .companies__inside-container > h3{
     font-weight: 900;
 }
@@ -92,11 +96,23 @@ body{
 
 .companies__header{
     display: flex;
-    justify-content: center;
+    
+    justify-content: space-around;
+    width: 100%;
 }
 
 .mobile__menu{
     display: none;
+}
+select{
+    background-color: white ;
+}
+option{
+    background-color: #4200FF ;
+    color: #FFF;
+}
+#companies__select{
+    color: black;
 }
 
 @media (max-width: 500px){

@@ -30,7 +30,6 @@ async function buscarInfoFuncionario(){
           <p>${response.email}</p>
           <p>${response.professional_level}</p>
           <p>${response.kind_of_work}</p>
-          <p>${response.department_uuid}</p>
         </div>
         `)
       }
@@ -60,7 +59,7 @@ async function mostrarColegas(){
   try{
     const responseJSON = await fetch ('http://localhost:6278/users/departments/coworkers', options)
     const response = await responseJSON.json()
-    // console.log(responseJSON)
+    console.log(response)
     
     const company = response.find((e) => (e))
     const users = response.map((e) => (e.users))
@@ -75,7 +74,7 @@ async function mostrarColegas(){
   
     div.insertAdjacentHTML('afterbegin', `
     <header class="colegas__header p-7 text-2xl font-bold">
-    <h2>${company.description}</h2>
+    <h2>${company.name}</h2><h2>${company.description}</h2>
     </header>
     `)
 
