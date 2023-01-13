@@ -566,9 +566,9 @@ async function chamarModalDepartamentos(){
   let selectUser = document.querySelector(".select__userToHire")
   let botaoContratar = document.querySelector(".contratar__button")
   
-
-     
-
+botaoOlho.forEach((e) => {
+  
+  
   e.addEventListener(("click"), (event) => {
       let IDdoDepartamento = event.currentTarget.id
       event.preventDefault()
@@ -576,14 +576,13 @@ async function chamarModalDepartamentos(){
       selectUser.innerHTML = ""
 
           
-            // let filter = mostrarDep.filter( (element) => { return element.uuid == event.currentTarget.id})
-            // filter.map((element) => {console.log(element)})
+            let filter = mostrarDep.filter( (element) => { return element.uuid == event.currentTarget.id})
             
               filter.map((element) => {
                 title.innerText = element.name
                 depDescription.innerText = element.description
                 nomeEmpresa.innerText = element.companies.name
-              })
+                })
 
                   userSemEmprego.forEach((elementos) => {
                     // console.log(elementos)
@@ -593,35 +592,14 @@ async function chamarModalDepartamentos(){
                     option.value = elementos.uuid
                     selectUser.append(option)
                     option.innerText = elementos.username      
-                  })
-                
-                // mostrarTodosUsers.map((e) => {
-                //   let optionSelecionada = document.querySelectorAll(".usuariosParaContratar")
-                //   Array.from(selectUser.options).forEach( function (option, index) {
-                    
-                //     if(option.id == e.uuid){
-                          
-                //       }
-                //     })
-                  
-
-                      // optionSelecionada.forEach((option) => {
-                      //   if(option.id == e.uuid){
-                            
-                      //     }
-                      //  })
-                      botaoOlho.forEach((e) => {
-                        botaoContratar.addEventListener(("click"), async() => {
-                      
+                    })
+                          botaoContratar.addEventListener(("click"), async() => {
                           contratarFuncionario(selectUser.value, IDdoDepartamento)
-                        })
-                   })
-
-                      
+                          })  
                   
-            
-          })
+    })
 
+  })
 
 }
 
