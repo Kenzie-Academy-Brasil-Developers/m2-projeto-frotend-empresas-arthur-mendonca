@@ -52,7 +52,7 @@ function fazerLogin(){
         else{
             localStorage.setItem("token", response.token)
             toast("Login realizado ", "#4BA036" )
-            window.location.assign("/dashboard.html")
+            window.location.assign("./dashboard.html")
         }
     }
     catch(error) {

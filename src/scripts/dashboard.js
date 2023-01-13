@@ -36,7 +36,7 @@ async function verificarTipoUsuario(){
     //   console.log(response.is_admin)
 
     if(!response.is_admin){
-        window.location.assign("/user.html")
+        window.location.assign("./user.html")
       } else{
         toast("Bem vindo de volta, sr. Admin", "#4BA036" )
         }
