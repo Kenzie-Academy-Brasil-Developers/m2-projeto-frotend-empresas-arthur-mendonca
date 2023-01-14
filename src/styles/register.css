@@ -14,7 +14,7 @@
 .form__container{
     background-color: #FFF;
     opacity: .9;
-    height: 59vh;
+    height: 58vh;
     width: 450px;
     margin: 30px;
 }
@@ -98,16 +98,32 @@
     color: #4200FF;
 }
 
+.mobile__menu-icon, .menu__mobile{
+    display: none;
+}
+
 @media (max-width: 500px){
 
+.menu__mobile{
+background-color: rgb(236, 236, 236);
+position: absolute;
+width: 100%;
+padding: 10px;
+}
+.nav__menu-desktop{
+    display: none;
+}
+
+.mobile__menu-icon{
+display: flex;
+width: 40px;
+height: 40px
+}
+
 .menu__div {
-    flex-direction: column;
-    align-items: center;
     height: max-content;
-    position: fixed;
-    right: 50px;
-    height: 5%;
-    width: 20%;
+    position: relative;
+    width: 100%;
  }
 .header__wrapper{
     justify-content: space-between;
@@ -119,9 +135,26 @@
   height: 40px;
   }
 
-  .hide{
-    display: none;
+.hide{
+    display: flex;
     
+    
+}
+.div__menu-buttons{
+    display: flex;
+    justify-content: center
+}
+
+#signup__button{
+    background-color: #4200FF;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+#home__button{
+    background-color: #f1f1f1;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    padding-right: 8px;
 }
 
 }

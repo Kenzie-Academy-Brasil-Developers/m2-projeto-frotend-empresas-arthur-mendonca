@@ -2,13 +2,11 @@ import { toast } from "./toastify.js"
 
 function mostrarMenuMobile(){
 
-    let menu = document.querySelector(".mobile__menu ")
-    let loginButton = document.querySelector("#login__button")
-    let signupButton = document.querySelector("#home__button")
-
-    menu.addEventListener(("click"), () => {
-        loginButton.classList.toggle("hide")
-        signupButton.classList.toggle("hide")
+    let menuButton = document.querySelector(".mobile__menu-icon")
+    let menuDiv = document.querySelector(".menu__mobile")
+    menuButton.addEventListener(("click"), () => {
+        
+        menuDiv.classList.toggle("hide")
         console.log("teste")
         
     })
@@ -28,9 +26,15 @@ let returnButton = document.querySelector(".return__button")
 retornarHomePeloForm()
 
 function retornarHomePeloHeader(){
-    let homeButton = document.querySelector("#home__button")
+    let homeButton = document.querySelector(".home__button")
+    let homeButton2 = document.querySelector(".home__button2")
     
     homeButton.addEventListener(("click"), (e) =>{
+        e.preventDefault()
+        window.location.assign("/index.html")
+        // ok
+        })
+    homeButton2.addEventListener(("click"), (e) =>{
         e.preventDefault()
         window.location.assign("/index.html")
         // ok
@@ -86,8 +90,12 @@ async function clicarParaCadastrarUsuario(){
 clicarParaCadastrarUsuario()
 
 function loginPeloHeaderButton(){
-    let homeButton = document.querySelector("#login__button")
-    homeButton.addEventListener(("click"),()=>{
+    let loginButton = document.querySelector(".login__button")
+    let loginButton2 = document.querySelector(".login__button2")
+    loginButton.addEventListener(("click"),()=>{
+        window.location.assign("./login.html")
+    }) 
+    loginButton2.addEventListener(("click"),()=>{
         window.location.assign("./login.html")
     }) 
 }

@@ -11,6 +11,10 @@
     justify-content: center;
 }
 
+.mobile__menu-icon, .menu__mobile{
+    display: none;
+}
+
 .form__container{
     background-color: #FFF;
     opacity: .9;
@@ -79,7 +83,7 @@
 
 #login__button{
     background-color: #4200FF;
-    color: #FFF;
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
 
@@ -103,14 +107,33 @@
 
 @media (max-width: 500px){
 
+.mobile__menu-icon{
+
+    display: block;
+}
+.menu__mobile{
+   
+   /* transform: translate(0px, 58px); */
+   transition: .7s ease;
+   position: relative;
+   
+}
+.nav__menu-desktop{
+    display: none;
+        width: 40px;
+    height: 40px;
+}
+.mobile__menu-icon{
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+
 .menu__div {
-    flex-direction: column;
-    align-items: center;
+
     height: max-content;
-    position: fixed;
-    right: 50px;
-    height: 5%;
-    width: 20%;
+    position: relative;
+    width: 100%;
  }
 .header__wrapper{
     justify-content: space-between;
@@ -122,9 +145,24 @@
   height: 40px;
   }
 
-  .hide{
+.menu__mobile, .menu__div {
     display: none;
+}
+
+.hide{
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+
+.div__menu-buttons{
+    z-index:10;
     
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
 }

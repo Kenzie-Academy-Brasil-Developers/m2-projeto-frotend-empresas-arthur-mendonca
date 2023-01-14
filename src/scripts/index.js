@@ -46,13 +46,12 @@ mostrarEmpresas()
 
 function mostrarMenuMobile(){
 
-    let menu = document.querySelector(".mobile__menu ")
-    let loginButton = document.querySelector("#login__button")
-    let signupButton = document.querySelector("#signup__button")
+    let menu = document.querySelector(".mobile__menu-icon")
+    let menuDiv = document.querySelector(".menu__div")
+   
 
     menu.addEventListener(("click"), () => {
-        loginButton.classList.toggle("hide")
-        signupButton.classList.toggle("hide")
+        menuDiv.classList.toggle("hide")
         console.log("teste")
         
     })
@@ -101,9 +100,13 @@ filtrarEmpresas()
 
 function redirecionarLogin(){
 
-    let loginButton = document.querySelector("#login__button")
-
+    let loginButton = document.querySelector("#botao__login-mobile")
+    let loginButton2 = document.querySelector("#login__button-123")
+    
     loginButton.addEventListener(("click"), () => {
+        window.location.assign("/src/pages/login.html")
+    })
+    loginButton2.addEventListener(("click"), () => {
         window.location.assign("/src/pages/login.html")
     })
 }
@@ -111,9 +114,13 @@ redirecionarLogin()
 
 function redirecionarCadastro(){
 
-    let cadastroButton = document.querySelector("#signup__button")
+    let cadastroButton = document.querySelector(".signup__button-both")
+    let cadastroButton2 = document.querySelector("#botao__cadastro-mobile")
 
     cadastroButton.addEventListener(("click"), () =>{
+        window.location.assign("/src/pages/register.html")
+    })
+    cadastroButton2.addEventListener(("click"), () =>{
         window.location.assign("/src/pages/register.html")
     })
 }

@@ -1,8 +1,9 @@
 import { toast } from "./toastify.js";
 
 function retornarHome(){
-    let cadastroButton = document.querySelector(".signup__button-lower")
-    let cadastroButtonUpper = document.querySelector("#signup__button-upper")
+    let cadastroButton = document.querySelector(".register__button-desktop")
+    let cadastroButtonUpper = document.querySelector("#signup__button")
+    let cadastroButtonMenu = document.querySelector(".signup__button-lower")
     cadastroButton.addEventListener(("click"), (e) =>{
         e.preventDefault()
         window.location.assign("./register.html")
@@ -11,12 +12,23 @@ function retornarHome(){
         e.preventDefault()
         window.location.assign("./register.html")
     })
+    cadastroButtonMenu.addEventListener(("click"), (e) =>{
+        e.preventDefault()
+        window.location.assign("./register.html")
+    })
 }
 retornarHome()
 
 function retornarHomePeloHeader(){
-    let homeButton = document.querySelector("#home__button")
-    homeButton.addEventListener(("click"),()=>{
+    let homeButton = document.querySelector(".home__button")
+    let homeButton2 = document.querySelector(".home__button-desktop")
+   
+    homeButton.addEventListener(("click"),(e)=>{
+        e.preventDefault()
+        window.location.assign("/index.html")
+    }) 
+    homeButton2.addEventListener(("click"),(e)=>{
+        e.preventDefault()
         window.location.assign("/index.html")
     }) 
 }
@@ -63,3 +75,19 @@ function fazerLogin(){
 
 fazerLogin()
 
+function mostrarMenuMobile(){
+
+    let menu = document.querySelector(".mobile__menu-icon")
+    let menuDiv = document.querySelector(".menu__div")
+    let menuDiv2 = document.querySelector(".menu__mobile")
+   
+
+    menu.addEventListener(("click"), () => {
+        menuDiv.classList.toggle("hide")
+        menuDiv2.classList.toggle("hide")
+        console.log("teste")
+        
+    })
+}
+
+mostrarMenuMobile()

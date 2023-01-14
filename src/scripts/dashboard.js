@@ -60,7 +60,7 @@ async function pegarTodosUsuarios(){
     const response = await responseJSON.json()
     // console.log(responseJSON)
     const splicedAdminUser = response.splice(0,1)
-    // console.log(response)
+    console.log(response)
       response.forEach((e) => {
         // CRIAR TODOS OS CARDS DE USUÁRIOS 
         let li = document.createElement("li")
@@ -120,7 +120,6 @@ async function pegarTodosUsuarios(){
 
             }
         })
-        // editarInfoDoUsuario(kind_of_work, professional_level, uuid)
                 // FUNÇÃO PARA EDITAR DADOS DO USUÁRIO
                 let editarUserModal = document.querySelector(".editar__usuario-modal")
                 let cancelButtonEditarUser = document.querySelector(".editarUser__cancelButton")
@@ -128,9 +127,9 @@ async function pegarTodosUsuarios(){
                 let selectNivelPro = document.querySelector("#professionalLevel__select")
                 let editarUserButton = document.querySelector(".editarUser__button")
                 icon1.addEventListener(("click"), (event) => {
-                  let id = event.currentTarget.id
-                  event.preventDefault()
-                  editarUserModal.showModal()
+                    let id = event.currentTarget.id
+                    event.preventDefault()
+                    editarUserModal.showModal()
                     
                     cancelButtonEditarUser.addEventListener(("click"), () => {editarUserModal.close()})
                     
@@ -138,8 +137,6 @@ async function pegarTodosUsuarios(){
                       editarInfoDoUsuario(selectModalidade.value, selectNivelPro.value, id)
                       })               
                 })
-
-
     })    
     return  response
   }
@@ -557,7 +554,7 @@ async function mostrarUserSemEmprego(){
 
 const userSemEmprego = await mostrarUserSemEmprego()
 const mostrarDep = await mostrarTodosDepartamentos()
-const mostrarTodosUsers = await pegarTodosUsuarios()
+const mostrarTodosUsers =  await pegarTodosUsuarios()
 
 async function chamarModalDepartamentos(){
 
@@ -568,16 +565,17 @@ async function chamarModalDepartamentos(){
   let nomeEmpresa = document.querySelector(".nome__empresa-modal")    
   let selectUser = document.querySelector(".select__userToHire")
   let botaoContratar = document.querySelector(".contratar__button")
+
   
+
 botaoOlho.forEach((e) => {
-  
-  
-  e.addEventListener(("click"), (event) => {
+  // console.log(e.id)
+  e.addEventListener(("click"), async (event) => {
       let IDdoDepartamento = event.currentTarget.id
       event.preventDefault()
       modal.showModal()
       selectUser.innerHTML = ""
-
+      // console.log(event.currentTarget.id)
           
             let filter = mostrarDep.filter( (element) => { return element.uuid == event.currentTarget.id})
             
@@ -598,11 +596,26 @@ botaoOlho.forEach((e) => {
                     })
                           botaoContratar.addEventListener(("click"), async() => {
                           contratarFuncionario(selectUser.value, IDdoDepartamento)
-                          })  
+                            })  
                   
-    })
-
-  })
+                            
+                          // console.log(mostrarTodosUsers)
+                        let filterUser = await mostrarTodosUsers.map( async (e) => {(e.department_uuid == event.currentTarget.id)})
+                        console.log(await filterUser)
+                              let ul = document.querySelector(".employed__users-ul")
+                              let li = document.createElement("li")
+                              ul.insertAdjacentHTML("beforeend", `
+                              <h3>${e.username}</h3>
+                              <p>${e.professional_level}</p>
+                              <p>${e}</p>
+                              `)
+                    
+    })  
+        
+  })    
+        botaoOlho.forEach((e) => console.log(e.id)) 
+        // IF ID DO BOTAO-OLHO FOR IGUAL AO ID DO DEPARTAMENTO,
+        // => LISTAR TODOS OS USUÁRIOS QUE TENHAM O MESMO ID DE DEPARTAMENTO
 
 }
 
@@ -610,19 +623,15 @@ chamarModalDepartamentos()
 
 
 
-async function mostrarFuncionarioDoDepartamento(){
-  const token = localStorage.getItem("token")
-  const options = {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token} `
-    }
-  };
-  
-  fetch('http://localhost:6278/users/departments/coworkers', options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    .catch(err => console.error(err));
 
-}
-mostrarFuncionarioDoDepartamento()
+// async function mostrarUsuariosDoSetor(){
+  
+//   let botaoOlho = document.querySelectorAll(".botao__olho")
+
+  
+//   // console.log(map)
+//   botaoOlho.forEach((e) => {if(e.id.includes(map)){
+//       console.log("includes")
+//   }})
+// }
+// mostrarUsuariosDoSetor()

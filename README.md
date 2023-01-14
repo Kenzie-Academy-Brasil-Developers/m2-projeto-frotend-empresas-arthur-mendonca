@@ -37,3 +37,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/change_event
 Evento change pra usar no select.
 
 Capturar a tag select pelo DOM e lhe passar um add event list3ner ( ("change"), ( ) =>
+
+
+http://localhost:6278/api-documentation/#/

@@ -5,6 +5,10 @@ body{
     
 }
 
+.menu__mobile{
+    display: none;
+}
+
 .header__wrapper{
     width: 100%;
     display: flex;
@@ -23,23 +27,29 @@ body{
 }
 
 .menu__div{
+    position: relative;
     display: flex;
     gap:30px;
     margin: 0 auto;
 }
 
-#login__button{
+menu{
+
+}
+
+#login__button-desktop{
     cursor: pointer;
+    background-color: #ffffff;
+    padding-right: 11px;
 }
 
 #login__button:hover{
     background-color: rgb(242, 242, 242);
     transition: 0.2s ease;
+    
 }
 
-
-
-#signup__button{
+#signup__button-desktop, #botao__cadastro-mobile{
     background-color: #4200FF ;
     color: #FFF;
     cursor: pointer;
@@ -101,7 +111,7 @@ opacity: 0.4;
     width: 100%;
 }
 
-.mobile__menu{
+.mobile__menu-icon {
     display: none;
 }
 select{
@@ -115,10 +125,28 @@ option{
     color: black;
 }
 
+
+
+
+
+
+
 @media (max-width: 500px){
 
 body{
     background-color: rgb(255, 255, 255);
+}
+
+.nav__menu-desktop{
+    display: none;
+}
+.menu__mobile{
+   display: block;
+   transform: translate(0px, 58px);
+   transition: .7s ease;
+   position: relative;
+   top: -117px;
+   
 }
 
 .header__wrapper{
@@ -127,16 +155,12 @@ body{
     z-index: 10;
     background-color: #FFF;
 }
-
+.menu__desktop{
+    display: none;
+}
 .menu__div {
-flex-direction: column;
-align-items: center;
-height: max-content;
-position: fixed;
-right: 50px;
-height: -1%;
-width: 20%;
-z-index:10;
+width: 100%;
+display: none;
 }
 
 .companies__container {
@@ -165,35 +189,27 @@ width: 100%;
 
 .div__menu-buttons{
     z-index:-1;
-    top:30px;
-    position: inherit;
+    
+    width: 100%;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    justify-content: center;
+    padding: 10px;
 }
 
 .hide{
-    position: relative;
-    z-index: -1;
-    transform: translateX(-330px);
-    transition: 0.2s ease-in;
-    /* bottom: 100px; */
-    left: 350px;
     display: flex;
-    /* left: 142px; */
+    position: absolute;
+    z-index: -1;
+    transform: translate(0px, 60px);
+    transition: 0.5s ease-in;
+    display: flex;
     flex-direction: column;
-    
+   
 }
 
 .show__menu{
     left: -31px;
-}
-
-#login__button{
-    z-index: -100;
-    position: relative;
-}
-
-#signup__button{
-    z-index: -100;
-    position: relative;
 }
 
 .img__container{
@@ -204,7 +220,7 @@ width: 100%;
     margin: 0 auto;
 }
 
-.mobile__menu{
+.mobile__menu-icon {
     display:flex;
     width: 40px;
     height: 40px;
