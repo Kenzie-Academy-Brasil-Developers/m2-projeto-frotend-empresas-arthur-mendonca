@@ -60,9 +60,7 @@ menu{
     justify-content: center;
 }
 
-.companies__container {
-    width: 30%;
-}
+
 
 .front__header-container{
     /* max-width: 420px; */
@@ -81,6 +79,7 @@ menu{
 .companies__container{
     max-height: 800px;
     overflow-y: scroll;
+    width: 30%;
 }
 
 .companies__inside-container{
@@ -166,6 +165,7 @@ display: none;
 
 .companies__container {
  margin-top: 12vh;
+ width: 100%;
 }
 .companies__ul-wrapper{
     display: flex;
