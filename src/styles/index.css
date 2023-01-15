@@ -61,11 +61,11 @@ menu{
 }
 
 .companies__container {
-    
+    width: 30%;
 }
 
 .front__header-container{
-    max-width: 420px;
+    /* max-width: 420px; */
     background-color: #4200FF ;
     color: white;
     align-items: center;
@@ -73,10 +73,10 @@ menu{
     justify-content: space-around;
 }
 
-.front__header-container > img {
+/* .front__header-container > img {
     width: 10%;
     height: 10%;
-}
+} */
 
 .companies__container{
     max-height: 800px;
@@ -125,8 +125,9 @@ option{
     color: black;
 }
 
-
-
+#companies__select{
+    appearance: none;
+}
 
 
 
@@ -225,5 +226,12 @@ width: 100%;
     width: 40px;
     height: 40px;
 }
+
+#arrow__down{
+    height: 20px;
+    width: 20px;
+
+}
+
     
 }
